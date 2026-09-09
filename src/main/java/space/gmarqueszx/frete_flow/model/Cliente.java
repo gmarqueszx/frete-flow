@@ -24,7 +24,7 @@ public class Cliente {
     private TipoPessoa tipoPessoa;
 
     //Caso pessoa física deve ser inserido o CPF, caso pessoa jurídica deve inserido o CNPJ.
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String documento;
 
     /*Caso pessoa física deve ser inserido o nome completo conforme a receita federal, caso pessoa
