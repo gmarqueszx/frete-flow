@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.util.StringUtils;
 import space.gmarqueszx.frete_flow.model.enums.TipoPessoa;
 
 @Entity
@@ -42,4 +43,12 @@ public class Cliente {
 
     @Column(length = 11)
     private String telefone;
+
+    @PrePersist
+    @PreUpdate
+    private void validarNomeFantasia() {
+        if (tipoPessoa == TipoPessoa.FISICA && StringUtils.hasText(nomeFantasia)) {
+            throw new IllegalStateException("Nome fantasia não é permitido para pessoa física.");
+        }
+    }
 }
