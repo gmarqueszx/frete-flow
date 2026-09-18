@@ -21,7 +21,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
-    private long id;
+    private Long id;
 
     //Define se o cliente é pessoa jurídica ou pessoa física.
     @Enumerated(value = EnumType.STRING)
