@@ -7,4 +7,5 @@ import space.gmarqueszx.frete_flow.model.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     boolean existsByDocumento(String documento);
+    boolean existsByEmail(String email);
 }
